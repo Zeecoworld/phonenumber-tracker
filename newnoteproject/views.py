@@ -13,7 +13,7 @@ def home(request):
         yrNumber = phonenumbers.parse(real_number)
         realLocation = phonenumbers.geocoder.description_for_number(yrNumber, "en")
         serviceProvider = carrier.name_for_number(yrNumber, "en")
-        geocoder = OpenCageGeocode("25b42fac07cb4ce395ff4af58d832e23")
+        geocoder = OpenCageGeocode("API_KEY")
         query = str(realLocation)
         result = geocoder.geocode(query,exactly_one=False)
         Latitude = result[0]['geometry']['lat']
