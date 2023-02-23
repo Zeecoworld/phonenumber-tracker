@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="navstrip">
+    <div class="navbox">
+        <div class="option">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-1 col-lg-3 col-xl-3 col-sm-1 col-1"></div>
+    <div class="col-md-10 col-lg-6 col-xl-6 col-sm-10 col-10">
+        <h1>Simple Phone Number Location Tracker</h1>
+        <br><br>
+        <form id="post-form" method="POST" action="">
+             {% csrf_token %}    
+           <input type="text" name="phoneNUMBER" class="form-control"  placeholder="Enter your phone number with country code" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <div class="col text-center butn">
+        <button type="submit" class="btn btn-dark">Check</button></div> <br/>   
+    </form>
+    {% if request.method == "POST" %}
+         <div class="alert alert-primary" role="alert">
+            {{location}}
+        </div>
+    {% endif %}
+    </div>
+    <div class="col-md-1 col-lg-3 col-xl-3 col-sm-1 col-1"></div>
+</div>
+
+{% endblock %} 
+
